@@ -5,6 +5,7 @@
 **Department:** ECE,RUET
 
 **Project Type:** AI Research (Image Domain)
+
 **Framework:** PyTorch
 
 ---
