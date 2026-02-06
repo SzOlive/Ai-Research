@@ -1,7 +1,10 @@
 # AI Research Project – Image Track
 
 **Name:** Shadman Zaman Olive 
+
 **Department:** ECE
+
+**University** RUET
 
 **Project Type:** AI Research (Image Domain)
 **Framework:** PyTorch
