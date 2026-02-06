@@ -81,4 +81,5 @@ For each model:
 ## Status
 
 Project started: **February 2026**
+
 Current phase: **MLP and PyTorch basics**
