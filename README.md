@@ -1,4 +1,3 @@
-# Ai-Research
 # AI Research Project – Image Track
 
 **Name:** Shadman Zaman Olive 
