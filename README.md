@@ -1,6 +1,6 @@
 # AI Research Project – Image Track
 
-**Name:** Shadman Zaman Olive 
+**Name:** Shadman Zaman 
 
 **Department:** ECE,RUET
 
