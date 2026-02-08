@@ -53,7 +53,9 @@
 
 ### 2.3. Neurons
 - Each neuron computes:
+
 z = w1*x1 + w2*x2 + ... + wn*xn + b
+
 a = activation(z)
 
 where `w` are weights, `x` are inputs, `b` is bias, and `a` is the output.
