@@ -1,8 +1,11 @@
 # AI Research Project – Image Track
 
 **Name:** Shadman Zaman
+
 **Department:** ECE, RUET
+
 **Project Type:** Guided AI Research
+
 **Framework:** PyTorch
 
 ---
