@@ -1,30 +1,47 @@
 # AI Research Project – Image Track
 
-**Name:** Shadman Zaman 
-
-**Department:** ECE,RUET
-
-**Project Type:** AI Research (Image Domain)
-
+**Name:** Shadman Zaman
+**Department:** ECE, RUET
+**Project Type:** Guided AI Research
 **Framework:** PyTorch
 
 ---
 
 ## Project Overview
 
-This repository contains my study notes and implementations for core Machine Learning and Deep Learning models as part of a guided AI research project.
+This repository contains study notes and implementations of core Machine Learning and Deep Learning models as part of a guided AI research project.
 
-The goal is to understand each model conceptually and implement it using **PyTorch**, focusing on practical understanding rather than heavy library usage.
+The objective is to build strong fundamentals by:
+
+* Understanding the theory behind each model
+* Implementing models from scratch or with minimal abstraction
+* Practicing with small datasets
+* Documenting results and observations
+
+The focus is on **conceptual clarity and practical implementation** using **PyTorch**.
 
 ---
 
-## My Topics (Image Track)
+## Research Track: Image Domain
 
-1. Convolutional Neural Network (CNN)
-2. Transfer Learning
-3. Generative Adversarial Networks (GAN)
-4. Vision Transformer (ViT)
-5. Multimodal Large Language Models
+Primary topics covered in this track:
+
+1. Artificial Neural Networks (ANN) & MLP
+2. Convolutional Neural Networks (CNN)
+3. Transfer Learning
+4. Generative Adversarial Networks (GAN)
+5. Vision Transformers (ViT)
+6. Multimodal Large Language Models
+
+---
+
+## Common Core Topics (All Team Members)
+
+* MLP (Multi-Layer Perceptron)
+* Artificial Neural Networks (ANN)
+* Forward Propagation
+* Backpropagation (with mathematical understanding)
+* Git & GitHub workflow
 
 ---
 
@@ -41,16 +58,16 @@ AI-Research
  └── README.md
 ```
 
-Each topic contains:
+Each topic folder contains:
 
 * Jupyter notebooks (`.ipynb`)
-* Short theory explanations
+* Short theory notes
 * PyTorch implementations
-* Results and visualizations
+* Experiment results (if applicable)
 
 ---
 
-## Tools Used
+## Tools and Technologies
 
 * Python
 * PyTorch
@@ -59,29 +76,30 @@ Each topic contains:
 
 ---
 
-## Study Approach
+## Study Methodology
 
 For each model:
 
-1. Study core theory
-2. Implement model in PyTorch
-3. Test on a small dataset
-4. Document results in a notebook
-5. Push progress to GitHub
+1. Study core theoretical concepts
+2. Implement the model in PyTorch
+3. Test using a small dataset
+4. Document results and observations
+5. Commit and push progress to GitHub
 
 ---
 
-## Goal of the Project
+## Project Goals
 
 * Build strong fundamentals in AI and Deep Learning
 * Understand models from MLP to modern vision transformers
-* Gain practical experience with PyTorch
-* Prepare for advanced AI research and projects
+* Gain hands-on experience with PyTorch
+* Prepare for advanced AI research and competitions
 
 ---
 
-## Status
+## Project Status
 
-Project started: **February 2026**
+**Start Date:** February 2026
+**Current Phase:** MLP fundamentals and PyTorch basics
 
-Current phase: **MLP and PyTorch basics**
+Progress will be updated as new models are completed.
