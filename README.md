@@ -103,6 +103,8 @@ For each model:
 ## Project Status
 
 **Start Date:** February 2026
-**Current Phase:** MLP fundamentals and PyTorch basics
+**Current Phase:** MLP fundamentals and PyTorch basics 
+
+1. ANN, MLP, forward & backprop are completed.
 
 Progress will be updated as new models are completed.
