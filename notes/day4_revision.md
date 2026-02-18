@@ -26,7 +26,7 @@ Each neuron:
 
 An **MLP** is a type of ANN where:
 
-* Neurons are arranged in multiple layers
+* Neurons are arranged in multiple layers, perception means each neuron is connected to every other neuron in the next layer except the input layer 
 * Each layer is **fully connected** to the next
 
 ### Structure

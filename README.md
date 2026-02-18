@@ -106,5 +106,6 @@ For each model:
 **Current Phase:** MLP fundamentals and PyTorch basics 
 
 1. ANN, MLP, forward & backprop are completed.
+2. CNN is completed.
 
 Progress will be updated as new models are completed.
