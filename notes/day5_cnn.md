@@ -2,6 +2,8 @@
 ## 1. What is CNN?
 CNN stands for Convolutional Neural Network. It's a specialized type of neural network designed specifically for processing grid-like data, particularly images.
 
+![alt text](image-2.png)
+
 Why CNN for Images?
 
 Images have spatial structure: Pixels close to each other form meaningful patterns, here spatial means 2D. This spatial structure is important for many tasks, like object detection, image classification, and more.
