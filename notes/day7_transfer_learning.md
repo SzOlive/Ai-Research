@@ -80,6 +80,7 @@ Training only the new **classifier layers**
 Training all layers with a **lower learning rate**
 
 4️⃣ Freezing Layers
+
 Preventing certain layers from being updated during training. This preserves the pretrained features like convolution layers in CNN.
 
 
@@ -164,22 +165,26 @@ What is ResNet?
 
 ResNet = Residual Network, introduced by Microsoft in 2015.
 
-Key Innovation: Skip Connections
-text
+Key Innovation: **Skip Connections**
+
 Traditional CNN:
+```
 Input → Conv → ReLU → Conv → ReLU → Output
          ↓                    ↑
-         └── Information flow ──┘
+         └──Information flow──┘
          (May lose information)
+```         
 
 ResNet with Skip Connection:
+```
 Input ──────────────────────────┐
-         ↓                       │
+         ↓                      │
 Input → Conv → ReLU → Conv → ReLU + → Output
-         ↓                    ↑    │
+         ↓                      ↑   │
          └── Information flow ──┘   │
-         (Preserves information)    │
+          (Preserves information)   │
          └──────────────────────────┘
+```
 Why Skip Connections Matter:
 Deeper networks possible (up to 152 layers!)
 
@@ -187,44 +192,47 @@ Vanishing gradient problem solved
 
 Information flow preserved
 
-ResNet18 Structure:
-text
-Layer Name    Output Size    Layers
+ResNet18 Structure: a convolutional neural network with 18 layers.
+
+Input size: 224×224 RGB (3 channels) , Output size: 112×112 because maxpool stride = 2  and ( 224 - 7 + 1 ) / 2 = 112 then (112 - 3 + 1) / 2 = 56 then (56 - 3 + 1) / 2 = 28 then (28 - 3 + 1) / 2 = 14 then (14 - 3 + 1) / 2 = 7 then (7 - 3 + 1) / 2 = 1
+```
+Layer Name    Output Size     Layers
 ────────────────────────────────────
-Conv1         112×112        7×7, 64, stride 2
+Conv1         112×112         7×7, 64, stride 2        # 64 filters of size 7x7, so 64 output channels
 MaxPool       56×56           3×3, stride 2
 ────────────────────────────────────
-Layer1        56×56           [3×3, 64] × 2
+Layer1        56×56           [3×3, 64] × 2            # [3×3, 64] means 3x3 convolution followed by 64 filters, 64x2 output channels           
                               [3×3, 64]
 ────────────────────────────────────
-Layer2        28×28           [3×3, 128] × 2
+Layer2        28×28           [3×3, 128] × 2           # 128 input, 128x2 output channels
                               [3×3, 128]
 ────────────────────────────────────
 Layer3        14×14           [3×3, 256] × 2
                               [3×3, 256]
 ────────────────────────────────────
-Layer4        7×7             [3×3, 512] × 2
+Layer4        7×7             [3×3, 512] × 2           # 512 input, 512x2 output channels
                               [3×3, 512]
 ────────────────────────────────────
-Average Pool  1×1             7×7 global average
-FC            1000            1000 classes
+Average Pool  1×1             7×7 global average              # 7x7 global average pooling means averaging over all pixels in the feature map
+FC            1000            1000 classes                    # 1000 classes of output for ImageNet
 ────────────────────────────────────
-8. Adapting ResNet18 for MNIST
+```
+### 8. Adapting ResNet18 for MNIST 
 Required Modifications:
 1. Input Size:
 
-text
+```
 ResNet expects: 224×224 RGB (3 channels)
 MNIST has:      28×28 grayscale (1 channel)
 Solution:       Resize to 224×224, convert grayscale→RGB
+
 2. Output Classes:
 
-text
 ResNet original: 1000 classes (ImageNet)
 MNIST needs:     10 classes (digits 0-9)
 Solution:        Replace final layer
 Visual of Adaptation:
-text
+
 Original ResNet18:
 [Conv Layers] → [AvgPool] → [FC (1000)] → [Output 1000 classes]
      ↓              ↓            ↓
@@ -236,24 +244,27 @@ Our Adapted ResNet18:
      ↓              ↓          ↓
   Pretrained    Pretrained   Trainable
    (frozen)      (frozen)    (new layer)
-9. Step-by-Step Transfer Learning Process
+```
+
+### 9. Step-by-Step Transfer Learning Process
+
 Step 1: Load Pretrained Model
-python
+```
 model = models.resnet18(pretrained=True)
 Downloads weights trained on ImageNet
 
 Sets up complete architecture
 
 Step 2: Freeze Convolutional Layers
-python
+
 for param in model.parameters():
     param.requires_grad = False
 Prevents pretrained features from being destroyed
 
 Saves computation time
 
-Step 3: Replace Classifier
-python
+Step 3: Replace Classifier (final layer)
+
 model.fc = nn.Linear(model.fc.in_features, 10)
 Removes old 1000-class classifier
 
@@ -262,50 +273,50 @@ Adds new 10-class classifier
 New layer starts with random weights
 
 Step 4: Train Only New Layers
-python
+
 optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
 Only updates the new classifier
 
 Preserves all pretrained features
+```
+### 10. Comparison: From Scratch vs Transfer Learning
+Aspect	             Training from Scratch	         Transfer Learning
+Starting point	     Random weights                  ImageNet pretrained
+Training time	      50+ epochs                    	2-5 epochs
+Data needed	         1000s per class	             10s-100s per class
+Accuracy(small data)	Poor	                        Excellent
+Convergence	            Slow	                           Fast
+Computational cost	    High	                           Low
 
-10. Comparison: From Scratch vs Transfer Learning
-Aspect	Training from Scratch	Transfer Learning
-Starting point	Random weights	ImageNet pretrained
-Training time	50+ epochs	2-5 epochs
-Data needed	1000s per class	10s-100s per class
-Accuracy (small data)	Poor	Excellent
-Convergence	Slow	Fast
-Computational cost	High	Low
 Expected Results on MNIST:
-text
+```
 Model Type        Epochs to 95%    Final Accuracy
 ────────────────────────────────────────────────────
 MLP from scratch       15               ~97%
 CNN from scratch        5               ~99%
 ResNet18 (transfer)     1               ~99.5%
-11. Common Transfer Learning Architectures
-Model	Year	Parameters	Best For
-ResNet18	2015	11.7M	General purpose, small/medium
-ResNet50	2015	25.6M	Higher accuracy, more compute
-VGG16	2014	138M	Simple architecture
-EfficientNet	2019	5.3-66M	State-of-the-art efficiency
-MobileNet	2017	4.2M	Mobile/edge deployment
-12. Memory Aid: Transfer Learning in 5 Steps
-text
+```
+### 11. Common Transfer Learning 
+```
+Model	      Year    	Parameters	      Best For
+ResNet18	  2015	    11.7M	          General purpose, small/medium
+ResNet50	  2015	    25.6M	          Higher accuracy, more compute
+VGG16	      2014	    138M	          Simple architecture
+EfficientNet  2019	   5.3-66M	          State-of-the-art efficiency
+MobileNet	  2017	    4.2M	          Mobile/edge deployment
+```
+### 12. Memory Aid: Transfer Learning in 5 Steps
+```
 1. LOAD: Get pretrained model (already knows features)
 2. FREEZE: Lock conv layers (preserve knowledge)
 3. REPLACE: Swap classifier head (for your task)
 4. TRAIN: Only new layers (learn task-specific)
 5. EVALUATE: Test performance (should be excellent!)
+```
 
-Mnemonic: "Learning From Really Good Teachers"
-- Load pretrained
-- Freeze features
-- Replace head
-- Gently train
-- Test accuracy
-13. Important Notes and Caveats
+### 13. Important Notes and Caveats
 ⚠️ When Transfer Learning Might NOT Work:
+
 Target domain completely different from ImageNet (e.g., medical X-rays)
 
 Very small dataset AND different domain
@@ -313,7 +324,8 @@ Very small dataset AND different domain
 Need for real-time inference on edge devices
 
 💡 Best Practices:
-Always normalize inputs to match pretrained model's expectations
+
+Always normalize inputs to match pretrained model's expectations (Normalization is the process of scaling down pixel values to a standard range that the model expects. )
 
 Use smaller learning rate for fine-tuning (1/10 of normal)
 
@@ -322,9 +334,10 @@ Start with frozen features, then gradually unfreeze if needed
 Monitor for overfitting (especially with small datasets)
 
 🔬 Research Insight:
+
 Your progression shows a clear learning trajectory:
 
-text
+```
 MLP (simple) → CNN (custom) → ResNet (transfer)
     ↓              ↓               ↓
   Baseline     Better features   Best performance
@@ -334,3 +347,4 @@ MLP (simple) → CNN (custom) → ResNet (transfer)
   ~97%           ~99%            ~99.5%
 This demonstrates why transfer learning is the standard approach in modern computer vision research and applications!
 
+```
