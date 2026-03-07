@@ -210,7 +210,7 @@ Layer2        28×28           [3×3, 128] × 2           # 128 input, 128x2 out
 Layer3        14×14           [3×3, 256] × 2
                               [3×3, 256]
 ────────────────────────────────────
-Layer4        7×7             [3×3, 512] × 2           # 512 input, 512x2 output channels
+Layer4        7×7             [3×3, 512] × 2                  # 512 input, 512x2 output channels
                               [3×3, 512]
 ────────────────────────────────────
 Average Pool  1×1             7×7 global average              # 7x7 global average pooling means averaging over all pixels in the feature map
