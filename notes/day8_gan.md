@@ -106,7 +106,10 @@ How They Compete:
 ### 4. Loss Functions Explained
 
 #### **Discriminator Loss (Binary Cross Entropy)** [from 0,1 output]
-Here the loss function is binary cross entropy that is -log(p), negative log probability so that the loss is always positive and we use log so that the loss is always less than 1 (0 < loss < 1)
+Here the loss function is binary cross entropy that is -log(p), 
+negative log probability so that the 
+loss is always positive and we use log
+so that the loss is always less than 1 (0 < loss < 1)
 
 The Discriminator has two jobs:
 
