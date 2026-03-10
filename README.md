@@ -54,9 +54,11 @@ Primary topics covered in this track:
 AI-Research
  ├── MLP            # ANN, MLP, forward & backprop
  ├── CNN            # CNN and transfer learning
+ ├── Segmentation   # Image segmentation
  ├── GAN            # Generative models
  ├── ViT            # Vision Transformer
  ├── Multimodal     # Image + text models
+ ├── SequenceModels # RNN, LSTM
  ├── notes          # Theory notes and summaries
  └── README.md
 ```
@@ -103,9 +105,12 @@ For each model:
 ## Project Status
 
 **Start Date:** February 2026
-**Current Phase:** MLP fundamentals and PyTorch basics 
+
+**Current Phase:** Sequence Models
 
 1. ANN, MLP, forward & backprop are completed.
 2. CNN is completed.
+3. GAN is completed.
+
 
 Progress will be updated as new models are completed.
