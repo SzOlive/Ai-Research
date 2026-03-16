@@ -58,7 +58,7 @@ AI-Research
  ├── GAN            # Generative models
  ├── ViT            # Vision Transformer
  ├── Multimodal     # Image + text models
- ├── SequenceModels # RNN, LSTM
+ ├── SequenceModels # RNN, LSTM, Transformer
  ├── notes          # Theory notes and summaries
  └── README.md
 ```
@@ -111,6 +111,7 @@ For each model:
 1. ANN, MLP, forward & backprop are completed.
 2. CNN is completed.
 3. GAN is completed.
+4. RNN, LSTM are completed.
 
 
 Progress will be updated as new models are completed.
