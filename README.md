@@ -106,12 +106,15 @@ For each model:
 
 **Start Date:** February 2026
 
-**Current Phase:** Sequence Models
+**Current Phase:** Multimodal Large Language Models
 
 1. ANN, MLP, forward & backprop are completed.
 2. CNN is completed.
 3. GAN is completed.
 4. RNN, LSTM are completed.
+5. Transformer is completed.
+6. Segmentation is completed.
+7. ViT is completed.
 
 
 Progress will be updated as new models are completed.
