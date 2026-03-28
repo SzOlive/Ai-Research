@@ -54,9 +54,9 @@ Primary topics covered in this track:
 AI-Research
  ├── MLP            # ANN, MLP, forward & backprop
  ├── CNN            # CNN and transfer learning
- ├── Segmentation   # Image segmentation
  ├── GAN            # Generative models
- ├── ViT            # Vision Transformer
+ ├── Segmentation   # Image segmentation, U-Net
+ ├── ViT            # Vision Transformer, Advanced ViT
  ├── Multimodal     # Image + text models
  ├── SequenceModels # RNN, LSTM, Transformer
  ├── notes          # Theory notes and summaries
